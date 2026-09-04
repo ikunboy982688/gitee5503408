@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="zh-CN" data-page-node-id="HHoBO1Ebx3oBamjzTXGoCu">
+<head data-page-node-id="2iapqmgNKdq1aG7ljfRvBd">
+  <meta charset="utf-8" data-page-node-id="WE7UGq6D0U5FYNj0am3dNc" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" data-page-node-id="8TP5kC7RcspWjrWM2DWNrY" />
+  <title>Image View</title>
+  <link rel="stylesheet" href="./styles.css" data-page-node-id="4bCe5z4t0uDgAVbgba57sG" />
+</head>
+<body data-page-node-id="ftiRCNvrpsHFxaVCrJclPS">
+  <header class="topbar" data-page-node-id="VGHQAG6RjPPROa8avt7FY2">
+    <div class="topbar-main" data-page-node-id="YGx2ausZs1Znmk1gBao5Yw">
+      <div class="topbar-left" data-page-node-id="rbUVsWgUT3caPJRqxiOLE3">
+        <div class="brand-mark" data-page-node-id="X0ZjmEwWYUp7p1r5W7TYgz">M</div>
+        <div class="h1" data-page-node-id="fgeHKGqbqXWzh07mtQYWQF">Image View</div>
+      </div>
+
+      <div class="topbar-right" data-page-node-id="LC0mCOIkUP2zaFF5E9V9D1">
+        <a
+          class="top-icon-btn"
+          href="https://github.com/MallocPointer/gitee/"
+          target="_blank"
+          rel="noopener"
+          aria-label="GitHub 仓库"
+          title="GitHub 仓库" data-page-node-id="3CvsbtrKQDs8l5vtTvOYNP"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true" data-page-node-id="nHbW1VtEHobaiN0j6erCd9">
+            <path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.11.79-.25.79-.56v-2.16c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.27-1.68-1.27-1.68-1.04-.72.08-.71.08-.71 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.67 1.25 3.32.96.1-.74.4-1.25.72-1.54-2.56-.29-5.25-1.28-5.25-5.72 0-1.27.46-2.3 1.19-3.12-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.19 1.19a11.1 11.1 0 0 1 5.8 0c2.22-1.5 3.19-1.19 3.19-1.19.63 1.58.23 2.75.11 3.04.74.82 1.19 1.85 1.19 3.12 0 4.45-2.7 5.43-5.28 5.72.41.35.78 1.05.78 2.11v3.12c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" data-page-node-id="IxkDylhojEvpvU23bIwWSb"/>
+          </svg>
+          <span data-page-node-id="4Tt00AuyEdhvOvT0LpmMzl">GitHub</span>
+        </a>
+
+        <button
+          class="top-icon-btn coffee-btn"
+          id="donateBtn"
+          type="button"
+          aria-label="赞助项目"
+          title="赞助项目" data-page-node-id="pTCw0eEAgEWgKeYf9BuxE2"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true" data-page-node-id="q33W7CwKSeAeZrGlleNlpC">
+            <path fill="currentColor" d="M3 6.5A2.5 2.5 0 0 1 5.5 4h9A2.5 2.5 0 0 1 17 6.5V7h1.75A3.25 3.25 0 0 1 22 10.25c0 1.64-1.23 3.02-2.86 3.21A5.5 5.5 0 0 1 13.75 18h-6.5A5.25 5.25 0 0 1 2 12.75V6.5Zm14 2V11a1.75 1.75 0 0 0 0-3.5H17Z" data-page-node-id="8kWei91OaRqZIApJab0BGU"/>
+            <path fill="currentColor" d="M6 20a1 1 0 0 1 1-1h9a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1Z" data-page-node-id="OcE2JEywm9ejfzxwRoXgce"/>
+          </svg>
+          <span data-page-node-id="CeoeiGloxGOTvNmbYIBhB9">赞助</span>
+        </button>
+
+        <div class="status" data-page-node-id="iViyGCtNccDE8XNxpD14dv">
+          <span class="badge" id="statusBadge" data-page-node-id="oknuwU7fUmQDWlNxLESwV2">准备就绪 / Ready</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="topbar-sub" data-page-node-id="gtrnFHq6EcV6f0yBrbmAtW">
+      <span class="api-label" data-page-node-id="MVlfmfdoComwVeXJ1JSkRv">多服务商版:</span>
+      <span class="mono api-link" data-page-node-id="Jprvae42DvoPuJho6QaAMT">Key 注册地址见下方第 1 步</span>
+    </div>
+  </header>
+
+  <div class="donate-modal" id="donateModal" aria-hidden="true" data-page-node-id="ZTuZqTMPcmzLDAsoFIjfxj">
+    <div class="donate-mask" id="donateMask" data-page-node-id="qSsDtXgywQdyTOMQtBnqVl"></div>
+    <div class="donate-panel" role="dialog" aria-modal="true" aria-labelledby="donateTitle" data-page-node-id="GI07qUR6qTxwqDiACCEkFb">
+      <button class="donate-close" id="donateClose" type="button" aria-label="关闭" data-page-node-id="HX7zNIgAKiEnAQnoaUrhLC">×</button>
+      <div class="donate-eyebrow" data-page-node-id="XBif4Qq9tdXO0zhvfWzrND">Support this project</div>
+      <h3 id="donateTitle" data-page-node-id="wxrgTVg0H2FfbACCGs8cPv">Buy me a coffee</h3>
+      <p class="donate-text" data-page-node-id="Qaj7bvS0Gb2cvJLvGWVGPV">
+        如果真的帮助到了你，请为我打赏一杯咖啡吧，有了你的赞助，我会将服务一直运行下去的。 我的联系方式：admin@airymoon.com。 项目开源地址：https://github.com/MallocPointer/gitee/
+      </p>
+      <img class="donate-image" src="./image.png" alt="项目赞助收款码" data-page-node-id="YIYWH7IeKbRNkPKjpB5cHE" />
+      <a class="btn primary donate-download" href="./image.png" target="_blank" rel="noopener" data-page-node-id="1WJr8zvnAOADiUEpR3fGiW">打开收款码</a>
+    </div>
+  </div>
+
+  <main class="container" data-page-node-id="U9Swl3kbO5KCIveVPUmdwS">
+    <section class="card" data-page-node-id="tE6jpgmBKfCP7GVduHDUcN">
+      <h2 data-page-node-id="FMOs5OFZrRpnXXhFN7ZNHW">1. 选择服务商并输入 API Key</h2>
+
+      <label class="lab">服务商 Provider</label>
+      <div class="row">
+        <select id="providerSel" class="input"></select>
+      </div>
+
+      <div class="row" data-page-node-id="RgX5kP30fq9ZqRBz6oBuMS">
+        <input id="apiKey" class="input" placeholder="Bearer Token" data-page-node-id="a2DkywIrFE2ctVxOAV90th" />
+        <label class="chk" data-page-node-id="Lugy3xSwdqO3ew8M72r7XU">
+          <input type="checkbox" id="rememberKey" data-page-node-id="rAnyVqEpE6al5FxH1HxP3F" />
+          记住（localStorage）
+        </label>
+        <button class="btn" id="btnClearKey" data-page-node-id="7m1xNbI1yq4YgDkdIuYeNy">清除</button>
+      </div>
+
+      <div class="hint">
+        Key 注册地址：<a id="providerKeyUrl" class="mono" href="#" target="_blank" rel="noopener"></a>
+      </div>
+      <div class="hint" id="providerNote"></div>
+      <div class="hint">
+        每个服务商的 Key 分开存在浏览器本地，切换服务商会自动带出对应的 Key。
+      </div>
+      <div class="hint" data-page-node-id="UodXKBwgQskjPnexfxZfcv">
+        请求通过同站点的 <span class="mono" data-page-node-id="OolxTmXaySq6mFuY23oc0E">/api/&lt;服务商&gt;/*</span> 代理转发，避免浏览器 CORS 限制。可选服务商由代码内的白名单决定，不会被滥用为开放代理。
+      </div>
+    </section>
+
+    <section class="card" data-page-node-id="zOPiQ8FBLqhBsCnwlyfnHV">
+      <h2 data-page-node-id="ZEq3SoSyVzcUW0q4IXFeYF">2. 选择模型 / Select Model</h2>
+      <div class="row" data-page-node-id="i8BGvLSWk4vSP1jDYzArLL">
+        <select id="modelSel" class="input" data-page-node-id="9BXFWM9HbODPDsub2yCxuT">
+          <option value="z-image" data-page-node-id="9yXGXOjguPuUpsRpyCGsEM">z-image（文生图 / Text-to-Image）</option>
+          <option value="Edit-2511" data-page-node-id="JPzaz3tNrvMdPHI2cI4Pfg">Edit-2511（图像编辑 / Image Edit）</option>
+          <option value="Wan2.2-I2V-A14B" data-page-node-id="luWRnPU0joiQnwnWBYAhyC">Wan2.2-I2V-A14B（图生视频 / Image-to-Video）</option>
+          <option value="HunyuanVideo-1.5" data-page-node-id="S06XNDs4tG753UmYYemI9b">HunyuanVideo-1.5（文生视频 / Text-to-Video）</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="card model-panel" id="panelZ" data-page-node-id="EXnmmmKcdEA4ZeSRkCNkAm">
+      <h2 data-page-node-id="fAqw88sH32xARhKqx2JEu9">z-image（文生图 / Text-to-Image）</h2>
+
+      <label class="lab" data-page-node-id="ddOCYtZ0EgkZL1xjJQ7n0L">提示词 Prompt（中/英均可 / CN&EN OK）</label>
+      <textarea id="zPrompt" class="textarea" rows="6" placeholder="例如：一只戴墨镜的柴犬，赛博朋克风，超清"></textarea>
+
+      <label class="lab">模型 Model（随服务商变化）</label>
+      <div class="row">
+        <select id="zModel" class="input"></select>
+      </div>
+
+      <div class="grid2" data-page-node-id="8CKmuvST0zn9T8BOKSuQpZ">
+        <div data-page-node-id="WHNivHXOAv7xKOFcJOImwu">
+          <label class="lab" data-page-node-id="CepfRaGboNyVY94tSjghed">分辨率 Resolution</label>
+          <select id="zRes" class="input" data-page-node-id="kcJBhGXdycuqStHd3sBFAw"></select>
+        </div>
+        <div data-page-node-id="q4E2W7GK728beOtkcWwWio">
+          <label class="lab" data-page-node-id="refqxxzArZYUp25wTkC6bA">张数 n（1-4）</label>
+          <input id="zN" class="input" type="number" min="1" max="4" value="1" data-page-node-id="FT4zNMTC2byRaYvAEueCZS" />
+        </div>
+      </div>
+
+      <div class="hint" data-page-node-id="eQEAYjRDS5jHwk6lmIbBEg">
+        建议：2048 更清晰但更慢更贵；n&gt;1 会输出多张。<br data-page-node-id="PGEXTGfZWMAgVYLvkmAiws"/>
+        Tip: 2048 is sharper but slower/more expensive; n&gt;1 outputs multiple images.
+      </div>
+
+      <div class="row" data-page-node-id="qR34rvaVshmhVDy2cqIHFw">
+        <button class="btn primary" id="btnZRun" data-page-node-id="UtISvEw3GBRODOTygfJmVJ">执行 / Generate</button>
+      </div>
+    </section>
+
+    <section class="card model-panel" id="panelEdit" data-page-node-id="91AzCwHOI4Hj4w38OrWdFk">
+      <h2 data-page-node-id="1rMoQ22RbAd0DwTasGCqNF">Edit-2511（图像编辑 / Image Edit）</h2>
+
+      <div class="grid2" data-page-node-id="x50nSZq8plEn2wrRmpqx1D">
+        <div data-page-node-id="tFtoKd8t6vKmGuRbHC9ZtF">
+          <label class="lab" data-page-node-id="IUc27DjzAuuaWZI9fMLxkJ">图1 Image 1</label>
+          <input id="editImg1" class="input" type="file" accept="image/png,image/jpeg,image/webp" data-page-node-id="ia8JxOD6xMUT7iCIVEEzpf" />
+        </div>
+        <div data-page-node-id="dBv636wwj5uHyPKqAaMqVV">
+          <label class="lab" data-page-node-id="ZINBipVFG5RC7C0KXb4ovm">图2 Image 2</label>
+          <input id="editImg2" class="input" type="file" accept="image/png,image/jpeg,image/webp" data-page-node-id="ZX5v8cr5aIlrAyi1gUuP4w" />
+        </div>
+      </div>
+
+      <label class="lab" data-page-node-id="sQtplDJYTFR6dzba1TnHem">提示词 Prompt</label>
+      <textarea id="editPrompt" class="textarea" rows="5" placeholder="描述你要的编辑效果（例如：把背景换成海边日落，保留人物）"></textarea>
+
+      <label class="lab" data-page-node-id="BDfQSbjxk6fYp5HBVBUsWl">任务类型 Task Types（可多选 / Multi-select）</label>
+      <div class="checks" id="editTaskTypes" data-page-node-id="ZKNh5wiWANIjeBKFRGWAwk"></div>
+
+      <div class="grid2" data-page-node-id="TsRo6j4VWH7jDE0qn8Ai4Z">
+        <div data-page-node-id="g9eARDhkLGlVAiP9JNitL0">
+          <label class="lab" data-page-node-id="kVUsOEaVWH8BtuBJJVsEPZ">steps num_inference_steps（1-50）</label>
+          <input id="editSteps" class="input" type="number" min="1" max="50" value="4" data-page-node-id="42DktPc55pMG1I1ynFIyCH" />
+        </div>
+        <div data-page-node-id="8S8XzY4hWwRtgeR61i1dU3">
+          <label class="lab" data-page-node-id="vL6NCDm47IpyX5jCutQDBQ">guidance_scale（0-10）</label>
+          <input id="editGuidance" class="input" type="number" min="0" max="10" step="0.5" value="1" data-page-node-id="5gEUt77xp8DpAQcFGEyimC" />
+        </div>
+      </div>
+
+      <label class="chk" data-page-node-id="gR5JYz9M9MhYHSr7E0wL7E">
+        <input type="checkbox" id="editOpenUrl" data-page-node-id="xMowtlUmW2KdYGK6FFbFm0" />
+        完成后浏览器打开 file_url / Open in browser after done
+      </label>
+
+      <div class="hint" data-page-node-id="KSbcjwkgrq0W1Un7Ejv3Hx">
+        Notes: Higher steps = slower but more detail; higher guidance = follows prompt more strongly.
+      </div>
+
+      <div class="row" data-page-node-id="zk0GaGIZ3S8Nswzj1BEiBL">
+        <button class="btn primary" id="btnEditRun" data-page-node-id="KJ4z7PMRBdv7AoxvQ6wZB0">执行 / Run</button>
+      </div>
+    </section>
+
+    <section class="card model-panel" id="panelWan" data-page-node-id="DtkW5GUkpx8M9cUjTnUBY4">
+      <h2 data-page-node-id="tCVXedi4ovbtg1zgdjAsIU">Wan2.2-I2V-A14B（图生视频 / Image-to-Video）</h2>
+
+      <label class="lab" data-page-node-id="dDlLhEjCPkw19hCE42stoo">输入图片 Image</label>
+      <input id="wanImg" class="input" type="file" accept="image/png,image/jpeg,image/webp" data-page-node-id="8vpsQ1ECLN9Q3fGNzAcHrA" />
+
+      <label class="lab" data-page-node-id="amtVfsG77qV8zSfYHYB2Ex">提示词 Prompt</label>
+      <textarea id="wanPrompt" class="textarea" rows="5" placeholder="描述视频风格/动作（例如：镜头缓慢推进，微风吹动头发，电影感）"></textarea>
+
+      <label class="lab" data-page-node-id="jpDFNJ6enI8Scmyk9b9Xo9">负面提示词 Negative Prompt（可选 / Optional）</label>
+      <textarea id="wanNeg" class="textarea" rows="3" placeholder="例如：lowres, blurry, watermark"></textarea>
+
+      <div class="grid3" data-page-node-id="GAoW3KT3rTUZcYEB7Ul8nb">
+        <div data-page-node-id="rOezU7pJTKpViN0QIKnOwr">
+          <label class="lab" data-page-node-id="GFcWrxc84RBCRyEK7vNWuf">预设 Preset</label>
+          <select id="wanPreset" class="input" data-page-node-id="lcj8kr3dmzm3zUygqqaXrH">
+            <option data-page-node-id="Gu5QjczFhvLAOzN2LxdF5a">标准 / Standard</option>
+            <option data-page-node-id="gD1m2lMnofbTwgkP9YlyAn">更清晰 / Sharper</option>
+            <option data-page-node-id="nAiNpFo6nO31RG1CSEgMjV">更动感 / More motion</option>
+            <option data-page-node-id="nb2jCfM7LjS1Zyarj1n7o7">更快 / Faster</option>
+          </select>
+        </div>
+        <div class="row-inline" data-page-node-id="9ohEM8vZFL0iHk1SgVyCY0">
+          <button class="btn" id="btnWanApplyPreset" data-page-node-id="jw3nbvAiDGhDoetJtpDDts">应用预设 / Apply</button>
+        </div>
+      </div>
+
+      <div class="grid3" data-page-node-id="AfTiKcSTyCqdPiFFGcVctG">
+        <div data-page-node-id="WRxGmm5xQEXNpADeO2dTIn">
+          <label class="lab" data-page-node-id="11vx7RETuw6u7hvxpxN3wo">分辨率预设 Resolution</label>
+          <select id="wanResPreset" class="input" data-page-node-id="Y4RUOXRG0n2KYNLmV0REF1"></select>
+        </div>
+        <div data-page-node-id="y8CWWN65jNGP1CipZhmKnH">
+          <label class="lab" data-page-node-id="KzAmzZCYpOgSYtq9XVs3n9">width 宽（64-2048）</label>
+          <input id="wanW" class="input" type="number" min="64" max="2048" step="8" value="832" data-page-node-id="gfaFeLAtijsCHHOEBaDZGV" />
+        </div>
+        <div data-page-node-id="NYGCtlfrlH4yA0QjkjTJog">
+          <label class="lab" data-page-node-id="aWsz5Ujzr8Ce4sDyOOXqQW">height 高（64-2048）</label>
+          <input id="wanH" class="input" type="number" min="64" max="2048" step="8" value="480" data-page-node-id="9gHK4H7kCfLTwyc16ZIBgH" />
+        </div>
+      </div>
+
+      <div class="grid3" data-page-node-id="ShFUDFGKx9DARng72Q1DLw">
+        <div data-page-node-id="pT7DDAnwnFkUSF7TDkaw9l">
+          <label class="lab" data-page-node-id="D10B359ru3R1T5noGr686k">num_inference_steps（1-100）</label>
+          <input id="wanSteps" class="input" type="number" min="1" max="100" value="30" data-page-node-id="XdD2LSB9nhJU0wauqdV571" />
+        </div>
+        <div data-page-node-id="Htd5DFne2CwlBDI1NxqnIK">
+          <label class="lab" data-page-node-id="OGkdXrtRCaypNp72ggfJdy">guidance_scale（0-20）</label>
+          <input id="wanGuidance" class="input" type="number" min="0" max="20" step="0.5" value="5" data-page-node-id="WHyHfkKuGMSbkMVbuGaY9M" />
+        </div>
+        <div data-page-node-id="KJsadHe3NyOSGxdepDfbRB">
+          <label class="lab" data-page-node-id="7oykYXtZJf02NkFtEv3tMK">seed（-1=随机 / random）</label>
+          <input id="wanSeed" class="input" type="number" min="-1" max="2147483647" value="-1" data-page-node-id="IS80exyeunnDXNqg7oDSNT" />
+        </div>
+      </div>
+
+      <div class="grid3" data-page-node-id="At0iRFmmOEK2yHov1GM3mB">
+        <label class="chk" data-page-node-id="eDjf1vTo7QL5qWkMGkFp3q"><input type="checkbox" id="wanWatermark" data-page-node-id="dPp0sTqh4CrkjJan3FPlDm" /> watermark 水印</label>
+        <label class="chk" data-page-node-id="6z3ZkVpxGEA2AFc9GH4oaS"><input type="checkbox" id="wanPromptExtend" data-page-node-id="UUZjK346e7ucJo7zq3LBa0" /> prompt_extend 自动扩写</label>
+        <label class="chk" data-page-node-id="oZCNqs5TSacJUoCanS9H2N"><input type="checkbox" id="wanOpenUrl" data-page-node-id="6wrrLtm5e2FRNVRq5RSiMR" /> 完成后浏览器打开 file_url</label>
+      </div>
+
+      <div class="grid3" data-page-node-id="thHVfQ0FyPXsnLs2K0WMSq">
+        <div data-page-node-id="Iy4lcq242MAPWy2gNwAMfb">
+          <label class="lab" data-page-node-id="aTVofsZReBzykztepHTMe9">帧率 FPS（1-60）</label>
+          <input id="wanFps" class="input" type="number" min="1" max="60" value="24" data-page-node-id="QtlN8oXTbhMJxLyqTSu6NZ" />
+        </div>
+        <div data-page-node-id="fTl7G1mt4tlQHiwMYBqWAF">
+          <label class="lab" data-page-node-id="n9YX9yWI8hB0P4fNk6kPtN">总时长 Duration 秒（0.5-60）</label>
+          <input id="wanDuration" class="input" type="number" min="0.5" max="60" step="0.5" value="5" data-page-node-id="KZhTRbi237F6SN1JSv9f6G" />
+        </div>
+        <div data-page-node-id="wQZCRfdgn1GPNuHgjyFNRX">
+          <label class="lab" data-page-node-id="tD6sjoFUP3iVPAoYCEvJD5">num_frames（1-300）</label>
+          <input id="wanFrames" class="input" type="number" min="1" max="300" value="30" data-page-node-id="qVZ1cIuofYzIxzwX31maUC" />
+        </div>
+      </div>
+
+      <div class="row" data-page-node-id="WCnBkePVZfl8IPdVB6TE1N">
+        <label class="chk" data-page-node-id="VgHxdC2XHkzViC0UTZooGM">
+          <input type="checkbox" id="wanAutoFrames" checked data-page-node-id="odp453qArKxgB5sO1WbX7w" />
+          num_frames 自动 = FPS×5s（推荐 / Auto）
+        </label>
+        <label class="chk" data-page-node-id="OqDWkp0WpHl2Bkwy0ZVT1o">
+          <input type="checkbox" id="wanZipSegments" data-page-node-id="x7ZaWRYyRQs4OgqqAP2wIe" />
+          生成多段时：一键打包下载（zip）
+        </label>
+      </div>
+
+      <div class="hint" data-page-node-id="GDFPHRxd2MeCVgm2IlSFHt">
+        说明：若服务端单次只能生成固定 5 秒，本工具会按你指定的 Duration 分段生成并下载。<br data-page-node-id="oKJhlWsoTE35VJeHeB3ZDg"/>
+        注意：浏览器端无法像桌面版那样用 ffmpeg 合并/裁剪成“一个最终 mp4”；因此多段会分别提供可播放与下载（也可勾选 zip 打包下载）。<br data-page-node-id="uURyjNFDq88wAfFhmQ56pC"/>
+        EN: If backend returns fixed-length clips, we generate segments and provide playable/downloadable mp4s (optionally zip).
+      </div>
+
+      <div class="row" data-page-node-id="WAxeAKEW4LnnjmBLfR6Mcu">
+        <button class="btn primary" id="btnWanRun" data-page-node-id="KX1qQHm4tBNLiC2cLVCD93">执行 / Generate Video</button>
+      </div>
+    </section>
+
+    <section class="card model-panel" id="panelHunyuan" data-page-node-id="n3vpBJQoNFdaypUaXas66M">
+      <h2 data-page-node-id="10EiqtnIP9dCGCO6D2tPM4">HunyuanVideo-1.5（文生视频 / Text-to-Video）</h2>
+
+      <label class="lab" data-page-node-id="FoKD7EcBYGmVmyjqfohYBx">提示词 Prompt（中/英均可 / CN&EN OK）</label>
+      <textarea id="hyPrompt" class="textarea" rows="6" placeholder="例如：年轻的中国女性穿着传统红色古装，轻轻撩起头纱，特写镜头，浅景深，暖色调"></textarea>
+
+      <label class="lab" data-page-node-id="fVIHBoVyLEmskhICJi7HIC">负面提示词 Negative Prompt（可选 / Optional）</label>
+      <textarea id="hyNeg" class="textarea" rows="3" placeholder="例如：lowres, blurry, watermark"></textarea>
+
+      <div class="grid3" data-page-node-id="2q3ldxhpPAZUQ1fhDMWjcZ">
+        <div data-page-node-id="5fO72QdKSRS4l5zq5uqkkd">
+          <label class="lab" data-page-node-id="DjTZI5GAMMUiwPImUosKX1">画面比例 Aspect Ratio</label>
+          <select id="hyAspect" class="input" data-page-node-id="UM3BGEqL78MToOmXFtdCFG">
+            <option value="16:9" data-page-node-id="HjGxuaSCj7VGuvEWgJ9L43">16:9</option>
+            <option value="9:16" data-page-node-id="y8PgG981vTxg8hWh5J6UfC">9:16</option>
+            <option value="1:1" data-page-node-id="DKa0qUFHDOxvCgWT7P1ZCg">1:1</option>
+          </select>
+        </div>
+        <div data-page-node-id="UCMzEJkYkNXRbBq7pFxQVf">
+          <label class="lab" data-page-node-id="XgFIWsyEryBvB1Ewo7o3cu">steps num_inferenece_steps（1-10）</label>
+          <input id="hySteps" class="input" type="number" min="1" max="10" value="10" data-page-node-id="mEqfmUar4BG5ZLWFDxanUW" />
+        </div>
+        <div data-page-node-id="sUEdsdPufjdEg063GDIxCb">
+          <label class="lab" data-page-node-id="Or74KX5sH2UAZRjZ34EKTY">fps（1-24）</label>
+          <input id="hyFps" class="input" type="number" min="1" max="24" value="24" data-page-node-id="XtGBpAWqlZMfQz9xexJvjG" />
+        </div>
+      </div>
+
+      <div class="grid3" data-page-node-id="eOKZA0wJ3ExGGt4XWr7faf">
+        <div data-page-node-id="7ChUkE5mDNaxTOLxo0HTuv">
+          <label class="lab" data-page-node-id="1H1YCZmMdT6nHbfbMgS7hL">num_frames（81-241）</label>
+          <input id="hyFrames" class="input" type="number" min="81" max="241" value="241" data-page-node-id="AHQg4CWN7yfbAMGB9WF33p" />
+        </div>
+        <div data-page-node-id="HBxIDPmZ83ilTYzbAZ969G">
+          <label class="lab" data-page-node-id="xtIDbaCZgFuApwHE8oaNia">seed（正整数 / positive integer）</label>
+          <input id="hySeed" class="input" type="number" min="1" max="2147483647" value="1" data-page-node-id="cQzt96YQC26WWHBrss9xMQ" />
+        </div>
+        <label class="chk" data-page-node-id="ScJASE7WKTTy4tScsGjpYA">
+          <input type="checkbox" id="hyOpenUrl" data-page-node-id="cMHHmxRL65TYAYGhxkWY33" />
+          完成后浏览器打开 file_url / Open in browser after done
+        </label>
+      </div>
+
+      <div class="hint" data-page-node-id="3e4VwfIwB6pDnRjiDA3Nza">
+        说明：这是异步任务接口，会先返回 task_id，然后自动轮询状态直至 success/failed。<br data-page-node-id="IZm48KY8C7vM65T9wmpX0Q"/>
+        EN: This is an async endpoint; we create a task, then poll status until success/failed.
+      </div>
+
+      <div class="row" data-page-node-id="dNtyH7MnLKjNJ1fo8ZCNxc">
+        <button class="btn primary" id="btnHyRun" data-page-node-id="GAHAcfWFP9uq1aYmYz0cxl">执行 / Generate Video</button>
+      </div>
+    </section>
+
+    <section class="card" data-page-node-id="E8PKduLqz4C2vEAHZEq958">
+      <div class="row row-between" data-page-node-id="BB6xYA2GkYfhdosnDyk3oX">
+        <h2 data-page-node-id="QIhn6hPzO36MENr1rH4h9R">输出 / Output</h2>
+        <div class="row-inline" data-page-node-id="sK2dfBCQG3wAxt3yT6scX6">
+          <button class="btn" id="btnClearOutput" data-page-node-id="aA3UBAfhFIQPqB3ZYNJ5RA">清空输出</button>
+        </div>
+      </div>
+      <div id="output" class="output" data-page-node-id="zYbdMDlmwxkSuFFdc14UaR"></div>
+    </section>
+  </main>
+
+  <footer class="footer" data-page-node-id="nwUy07iQqsHFeecv5lr3Dg">
+    <div class="mono" data-page-node-id="JDTXotebeAM3DI7BNJ9ydm">Powered by Cloudflare Pages Functions proxy • 请使用者自觉遵守所在国家的法律，切勿触犯法律界限 • Please consciously comply with the laws of your country and do not cross legal boundaries.</div>
+  </footer>
+
+  <script src="./app.js"></script>
+  <script>
+    (function () {
+      const donateBtn = document.getElementById("donateBtn");
+      const donateModal = document.getElementById("donateModal");
+      const donateMask = document.getElementById("donateMask");
+      const donateClose = document.getElementById("donateClose");
+
+      if (!donateBtn || !donateModal || !donateMask || !donateClose) return;
+
+      const openDonate = () => {
+        donateModal.classList.add("show");
+        donateModal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+      };
+
+      const closeDonate = () => {
+        donateModal.classList.remove("show");
+        donateModal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+      };
+
+      donateBtn.addEventListener("click", openDonate);
+      donateMask.addEventListener("click", closeDonate);
+      donateClose.addEventListener("click", closeDonate);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && donateModal.classList.contains("show")) {
+          closeDonate();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
